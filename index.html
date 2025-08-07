@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>John Malik | Web Developer</title>
+    <meta name="description"
+        content="John Malik - Full-stack web developer portfolio with projects, skills, and contact info.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #f5f6fa;
+            --bg-glass: #fff;
+            --accent: #232946;
+            --accent2: #232946;
+            --accent3: #232946;
+            --text-main: #232946;
+            --text-muted: #6b7280;
+            --shadow: 0 8px 32px 0 rgba(44, 62, 80, 0.10);
+            --radius: 18px;
+            --transition: 0.25s cubic-bezier(.4, 2, .6, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background: linear-gradient(120deg, #e9ecef 0%, #f5f6fa 100%);
+            color: var(--text-main);
+            min-height: 100vh;
+            line-height: 1.7;
+            letter-spacing: 0.01em;
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(120deg, #232946 60%, #232946 100%);
+            color: #fff;
+            padding: 4rem 1rem 2.5rem 1rem;
+            text-align: center;
+            border-bottom-left-radius: var(--radius);
+            border-bottom-right-radius: var(--radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--accent);
+            margin-top: 1.5rem;
+            box-shadow: 0 8px 32px rgba(44, 62, 80, 0.10);
+            transition: transform var(--transition), box-shadow var(--transition);
+            background: #e9ecef;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.08) rotate(-2deg);
+            box-shadow: 0 16px 48px var(--accent2);
+        }
+
+        h1 {
+            font-size: 2.7rem;
+            margin: 1.2rem 0 0.3rem 0;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            background: white;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .socials {
+            margin: 1.2rem 0 0.7rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .socials a {
+            color: #fff;
+            font-size: 2rem;
+            transition: color var(--transition), transform var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .socials a:hover {
+            color: var(--accent2);
+            transform: scale(1.12) rotate(-8deg);
+            text-shadow: none;
+        }
+
+        header p {
+            font-size: 1.18rem;
+            max-width: 600px;
+            margin: 0.7rem auto 0 auto;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .resume-btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.7rem 2.2rem;
+            background: rgb(243, 228, 177);
+            color: #000000;
+            font-weight: 700;
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            box-shadow: 0 2px 16px var(--accent2);
+            border: none;
+            transition: background var(--transition), color var(--transition), box-shadow var(--transition), transform var(--transition);
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resume-btn:hover {
+            background: linear-gradient(90deg, #232946, var(--accent2));
+            color: #fff;
+            box-shadow: 0 4px 32px var(--accent2);
+            transform: translateY(-2px) scale(1.04);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #fff;
+            box-shadow: 0 2px 16px rgba(44, 62, 80, 0.05);
+            border-radius: 0 0 var(--radius) var(--radius);
+            margin: -1.7rem auto 2.2rem auto;
+            max-width: 720px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(8px);
+            border-bottom: 1.5px solid var(--accent2);
+            overflow-x: auto;
+        }
+
+        nav a {
+            padding: 1.1rem 2.2rem;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 1.13rem;
+            transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+            border-radius: 10px;
+            margin: 0 0.6rem;
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+
+        nav a.active,
+        nav a:hover {
+            background: linear-gradient(90deg, var(--accent2) 60%, var(--accent) 100%);
+            color: #fff;
+            box-shadow: 0 2px 12px var(--accent2);
+        }
+
+        section {
+            padding: 3.5rem 2rem;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.3rem;
+            margin-bottom: 1.7rem;
+            text-align: center;
+            color: var(--accent2);
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            font-family: 'Inter', Arial, sans-serif;
+            text-shadow: none;
+        }
+
+        .about,
+        .skills,
+        .projects,
+        .contact {
+            background: var(--bg-glass);
+            border-radius: var(--radius);
+            padding: 2.7rem 2.2rem;
+            margin-bottom: 2.7rem;
+            box-shadow: var(--shadow);
+            transition: box-shadow var(--transition), transform var(--transition), background var(--transition);
+            backdrop-filter: blur(8px);
+            border: 1.5px solid #e9ecef;
+        }
+
+        .about:hover,
+        .skills:hover,
+        .projects:hover,
+        .contact:hover {
+            box-shadow: var(--shadow);
+            transform: translateY(-6px) scale(1.015);
+            background: var(--bg-glass);
+        }
+
+        .skills ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.1rem;
+            padding: 0;
+        }
+
+        .skills li {
+            background: linear-gradient(90deg, var(--accent2) 60%, var(--accent) 100%);
+            padding: 0.8rem 1.6rem;
+            border-radius: 10px;
+            font-weight: 600;
+            color: #fff;
+            box-shadow: 0 2px 10px rgba(44, 62, 80, 0.04);
+            margin-bottom: 0.5rem;
+            font-size: 1.08rem;
+            letter-spacing: 0.5px;
+            transition: background var(--transition), color var(--transition), transform var(--transition);
+        }
+
+        .skills li:hover {
+            background: linear-gradient(90deg, var(--accent2) 60%, var(--accent) 100%);
+            color: #fff;
+            transform: scale(1.07) rotate(-2deg);
+        }
+
+        .projects .project {
+            border: none;
+            border-radius: 16px;
+            padding: 1.7rem 1.4rem;
+            margin: 1.3rem 0;
+            background: #f5f6fa;
+            box-shadow: 0 2px 16px rgba(44, 62, 80, 0.08);
+            transition: box-shadow var(--transition), transform var(--transition), background var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .projects .project:hover {
+            box-shadow: 0 2px 16px rgba(44, 62, 80, 0.12);
+            background: #f5f6fa;
+            transform: translateY(-8px) scale(1.025);
+        }
+
+        .projects .project h3 {
+            margin-bottom: 0.6rem;
+            color: var(--accent2);
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .projects .project p {
+            color: var(--text-main);
+            font-size: 1.08rem;
+            opacity: 0.92;
+        }
+
+        .contact a {
+            color: var(--accent2);
+            text-decoration: underline;
+            font-weight: 600;
+            transition: color var(--transition);
+        }
+
+        .contact a:hover {
+            color: var(--accent);
+        }
+
+        footer {
+            background: #232946;
+            color: var(--text-muted);
+            text-align: center;
+            padding: 2.7rem 1rem 1.7rem 1rem;
+            font-size: 1.13rem;
+            border-top-left-radius: 36px;
+            border-top-right-radius: 36px;
+            margin-top: 2.2rem;
+            box-shadow: 0 -2px 16px rgba(44, 62, 80, 0.08);
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 900px) {
+            section {
+                padding: 2rem 0.5rem;
+            }
+
+            .about,
+            .skills,
+            .projects,
+            .contact {
+                padding: 1.2rem 0.7rem;
+            }
+
+            nav {
+                flex-direction: column;
+                max-width: 100%;
+                border-radius: 0 0 14px 14px;
+            }
+
+            nav a {
+                margin: 0.2rem 0;
+                padding: 0.8rem 1rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            .profile-img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .about,
+            .skills,
+            .projects,
+            .contact {
+                border-radius: 12px;
+            }
+
+            nav {
+                border-radius: 0 0 10px 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <img src="image.jpg" alt="John Malik" class="profile-img" />
+        <h1>John Malik</h1>
+        <div class="socials">
+            <a href="https://github.com/" target="_blank" title="GitHub" aria-label="GitHub">
+                <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.73 1.27 3.4.97.11-.75.41-1.27.74-1.56-2.55-.29-5.23-1.28-5.23-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.68 5.41-5.24 5.7.42.36.79 1.09.79 2.2 0 1.59-.01 2.87-.01 3.26 0 .31.21.68.8.56C20.71 21.39 24 17.08 24 12c0-6.27-5.23-11.5-12-11.5z" />
+                </svg>
+            </a>
+            <a href="https://linkedin.com/" target="_blank" title="LinkedIn" aria-label="LinkedIn">
+                <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                        d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z" />
+                </svg>
+            </a>
+        </div>
+        <p>Creative and detail-oriented Web Developer with expertise in building responsive and user-friendly websites.
+        </p>
+        <a href="resume.pdf" class="resume-btn" download>Download Resume</a>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>
+            I'm a passionate web developer with years of experience in building dynamic, responsive websites and web
+            apps. I hold a BCA and specialize in HTML, CSS and JavaScript.
+        </p>
+        <p>
+            I love working on challenging problems, collaborating with teams, and delivering high-quality user
+            experiences through code.
+        </p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2>Projects</h2>
+
+        <div class="project">
+            <h3>Portfolio Website</h3>
+            <p>Responsive personal portfolio site built with HTML, CSS, and JavaScript showcasing skills, resume, and
+                projects.</p>
+        </div>
+
+        <div class="project">
+            <h3>Tic Tac Toe Game</h3>
+            <p>A classic Tic Tac Toe game built with HTML, CSS, and JavaScript. Features interactive gameplay, score
+                tracking, and a clean, responsive UI.</p>
+        </div>
+
+        <div class="project">
+            <h3>Weather Dashboard</h3>
+            <p>App that fetches live weather data using the OpenWeather API with clean UI and search history.</p>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 John Malik. All rights reserved.</p>
+    </footer>
+
+    <!-- Active Link Script -->
+    <script>
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll("nav a");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop - 120;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach((link) => {
+                link.classList.remove("active");
+                if (link.getAttribute("href").includes(current)) {
+                    link.classList.add("active");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
